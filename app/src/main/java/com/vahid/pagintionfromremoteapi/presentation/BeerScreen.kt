@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.items
 import com.vahid.pagintionfromremoteapi.domain.Beer
 
 @Composable
@@ -42,9 +43,9 @@ fun BeerScreen(
                 verticalArrangement = Arrangement.SpaceBetween,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                items(beers.itemCount) { beer ->
-                    if (beers[beer] != null) {
-                        BeerItem(beer = beers[beer]!!, modifier = Modifier.fillMaxWidth())
+                items(beers) { beer ->
+                    if (beer != null) {
+                        BeerItem(beer = beer, modifier = Modifier.fillMaxWidth())
                     }
                 }
                 item {
